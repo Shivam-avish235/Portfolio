@@ -1120,6 +1120,11 @@ section {
   margin: 0 auto;
 }
 
+.section-cta {
+  text-align: center;
+  margin-top: 60px;
+}
+
 /* About Section */
 .about {
   background: var(--color-darker-bg);
@@ -1166,6 +1171,10 @@ section {
 .info-item p {
   color: var(--color-text-muted);
   margin: 0;
+}
+
+.about-cta {
+  margin-top: var(--space-32);
 }
 
 .about-stats {
@@ -1529,6 +1538,121 @@ section {
   line-height: 1.5;
 }
 
+/* Resume Section */
+.resume {
+  background: var(--color-dark-bg);
+}
+
+.resume-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resume-preview {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  margin-bottom: var(--space-32);
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: var(--space-32);
+  padding-bottom: var(--space-24);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.resume-header h3 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--space-8);
+}
+
+.resume-header p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-16);
+}
+
+.resume-contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-12);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.resume-contact span {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.resume-contact i {
+  color: var(--color-accent);
+  width: 16px;
+}
+
+.resume-section {
+  margin-bottom: var(--space-32);
+}
+
+.resume-section h4 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--space-16);
+  padding-bottom: var(--space-8);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.resume-section p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-16);
+}
+
+.resume-skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.resume-skills div {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.resume-skills strong {
+  color: var(--color-white);
+}
+
+.resume-project {
+  margin-bottom: var(--space-20);
+}
+
+.resume-project h5 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: var(--space-8);
+}
+
+.resume-project p {
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.resume-actions {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* Contact Section */
 .contact {
   background: var(--color-darker-bg);
@@ -1593,8 +1717,15 @@ section {
   margin-bottom: var(--space-20);
 }
 
-.contact-form input,
-.contact-form textarea {
+.form-label {
+  display: block;
+  color: var(--color-white);
+  font-weight: 500;
+  margin-bottom: var(--space-8);
+  font-size: var(--font-size-sm);
+}
+
+.form-control {
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--color-card-border);
@@ -1602,6 +1733,7 @@ section {
   padding: var(--space-12) var(--space-16);
   color: var(--color-white);
   font-size: var(--font-size-base);
+  font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -1627,6 +1759,7 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-8);
   padding: var(--space-12) var(--space-24);
   border-radius: var(--radius-base);
   font-size: var(--font-size-base);
@@ -1649,6 +1782,12 @@ section {
   box-shadow: var(--shadow-glow);
 }
 
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .btn-outline {
   background: transparent;
   color: var(--color-accent);
@@ -1663,6 +1802,73 @@ section {
 
 .btn-full-width {
   width: 100%;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.modal-header {
+  margin-bottom: var(--space-24);
+}
+
+.success-icon {
+  font-size: 3rem;
+  color: var(--color-accent-secondary);
+  margin-bottom: var(--space-16);
+}
+
+.modal-header h3 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-white);
+  margin: 0;
+}
+
+.modal-body p {
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-24) 0;
+  line-height: 1.6;
+}
+
+.modal-footer {
+  margin-top: var(--space-24);
 }
 
 /* Footer */
@@ -1753,6 +1959,28 @@ section {
   }
 }
 
+/* Loading States */
+.btn.loading {
+  pointer-events: none;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: var(--space-8);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-menu {
@@ -1810,6 +2038,16 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .resume-contact {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .resume-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
   section {
     padding: 60px 0;
   }
@@ -1855,7 +2093,8 @@ section {
   }
 
   .skill-category,
-  .contact-form {
+  .contact-form,
+  .resume-preview {
     padding: var(--space-20);
   }
 
@@ -1865,5 +2104,14 @@ section {
 
   .timeline-content {
     padding: var(--space-20);
+  }
+
+  .modal-content {
+    padding: var(--space-24);
+  }
+
+  .btn {
+    padding: var(--space-10) var(--space-20);
+    font-size: var(--font-size-sm);
   }
 }
